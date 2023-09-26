@@ -1,13 +1,27 @@
+import requests
+
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-## STEP 1: Use https://www.alphavantage.co
+#Todo STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+parameters = {
+    "function": "TIME_SERIES_INTRADAY",
+    "symbol": STOCK,
+    "apikey": "BN84AOSWLGITNMG5",
+    "interval": "60min"
+}
 
-## STEP 2: Use https://newsapi.org
+url = 'https://www.alphavantage.co/query?'
+r = requests.get(url, params=parameters)
+data = r.json()
+
+print(data)
+
+#Todo STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
-## STEP 3: Use https://www.twilio.com
+#Todo STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
 
 
