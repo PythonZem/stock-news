@@ -10,7 +10,7 @@ client = Client(account_sid, auth_token)
 
 def send_sms(text: str):
     message = client.messages \
-        .create
+        .create(
             body=text,
             from_='+12568294379',
             to='+380503962864'
